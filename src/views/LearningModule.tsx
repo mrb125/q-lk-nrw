@@ -62,6 +62,39 @@ const LearningModule: React.FC = () => {
                 <p style={{ fontSize: '1.25rem', color: 'var(--text-muted)', marginTop: '0.5rem' }}>
                     {moduleData.description}
                 </p>
+
+                {moduleData.experimentImage && (
+                    <div style={{
+                        marginTop: '2rem',
+                        borderRadius: '12px',
+                        overflow: 'hidden',
+                        border: '1px solid var(--border-color)',
+                        background: 'rgba(0,0,0,0.3)',
+                    }}>
+                        <img
+                            src={moduleData.experimentImage.url}
+                            alt={moduleData.experimentImage.caption}
+                            style={{
+                                width: '100%',
+                                maxHeight: '360px',
+                                objectFit: 'contain',
+                                display: 'block',
+                                background: 'rgba(255,255,255,0.03)',
+                                padding: '1rem',
+                            }}
+                            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                        />
+                        <div style={{
+                            padding: '0.75rem 1rem',
+                            fontSize: '0.8rem',
+                            color: 'var(--text-muted)',
+                            borderTop: '1px solid var(--border-color)',
+                            fontStyle: 'italic',
+                        }}>
+                            📷 {moduleData.experimentImage.caption} · Quelle: Wikimedia Commons (CC)
+                        </div>
+                    </div>
+                )}
             </header>
 
             <section>

@@ -31,6 +31,7 @@ export type ModuleData = {
     resources?: ResourceData[];
     hasSimulation?: boolean;
     isBonus?: boolean;
+    experimentImage?: { url: string; caption: string };
 };
 
 export const modules: ModuleData[] = [
@@ -43,6 +44,10 @@ export const modules: ModuleData[] = [
         progress: 0,
         iconName: "Waves",
         hasSimulation: true,
+        experimentImage: {
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Single_slit_and_double_slit2.jpg/640px-Single_slit_and_double_slit2.jpg",
+            caption: "Doppelspaltmuster: Links Einfachspalt, rechts Doppelspalt-Interferenz"
+        },
         theoryBites: [
             {
                 title: "Das Muster auf dem Schirm",
@@ -93,6 +98,10 @@ export const modules: ModuleData[] = [
         description: "Transversalwelleneigenschaft des Lichts und Photonen.",
         progress: 0,
         iconName: "Minus",
+        experimentImage: {
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Polarizacio.jpg/640px-Polarizacio.jpg",
+            caption: "Polarisation von Licht: Zwei gekreuzte Polarisationsfilter löschen das Licht aus"
+        },
         theoryBites: [
             {
                 title: "Was ist Polarisation?",
@@ -137,6 +146,10 @@ export const modules: ModuleData[] = [
         description: "Interferenz vs. Welcher-Weg-Information.",
         progress: 0,
         iconName: "GitFork",
+        experimentImage: {
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Interference_of_two_waves.svg/640px-Interference_of_two_waves.svg.png",
+            caption: "Konstruktive und destruktive Interferenz – je nach Welcher-Weg-Information"
+        },
         theoryBites: [
             {
                 title: "Komplementarität",
@@ -181,6 +194,10 @@ export const modules: ModuleData[] = [
         description: "Einzelphotonen im Interferometer – Superposition und Messung.",
         progress: 0,
         iconName: "Share2",
+        experimentImage: {
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Mach-Zehnder_interferometer.svg/640px-Mach-Zehnder_interferometer.svg.png",
+            caption: "Aufbau des Mach-Zehnder-Interferometers mit zwei Strahlteilern (BS) und Spiegeln (M)"
+        },
         theoryBites: [
             {
                 title: "Aufbau des Interferometers",
@@ -225,6 +242,10 @@ export const modules: ModuleData[] = [
         description: "Entscheidet die Messung nachträglich über den Wellencharakter?",
         progress: 0,
         iconName: "Clock",
+        experimentImage: {
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Delayed_Choice_Quantum_Eraser.svg/640px-Delayed_Choice_Quantum_Eraser.svg.png",
+            caption: "Schema des Delayed-Choice-Quantenradierer-Experiments"
+        },
         theoryBites: [
             {
                 title: "Das Experiment (Wheeler)",
@@ -270,6 +291,10 @@ export const modules: ModuleData[] = [
         progress: 0,
         iconName: "Zap",
         hasSimulation: true,
+        experimentImage: {
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Electron_diffraction_pattern.jpg/480px-Electron_diffraction_pattern.jpg",
+            caption: "Elektronenbeugungsmuster an einem polykristallinen Aluminiumfilm – die konzentrischen Ringe beweisen die Wellennatur der Elektronen"
+        },
         theoryBites: [
             {
                 title: "Bragg-Reflexion am Kristall",
@@ -314,6 +339,10 @@ export const modules: ModuleData[] = [
         description: "Materiewellen: Jedem Teilchen eine Wellenlänge λ = h/p.",
         progress: 0,
         iconName: "Activity",
+        experimentImage: {
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Double-slit_experiment_results_Tanamura_2.jpg/480px-Double-slit_experiment_results_Tanamura_2.jpg",
+            caption: "Tonomura-Experiment: Aufbau des Elektroneninterferenzmusters aus Einzelelektronen – Beweis für Materiewellen"
+        },
         theoryBites: [
             {
                 title: "Die Hypothese De Broglies (1924)",
@@ -358,6 +387,10 @@ export const modules: ModuleData[] = [
         description: "Ort und Impuls sind prinzipiell unscharf zugleich.",
         progress: 0,
         iconName: "AlertTriangle",
+        experimentImage: {
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Heisenberg_gamma-ray_microscope.svg/480px-Heisenberg_gamma-ray_microscope.svg.png",
+            caption: "Heisenbergs Gammastrahlen-Mikroskop: Gedankenexperiment zur Unschärferelation"
+        },
         theoryBites: [
             {
                 title: "Die Unschärferelation",
@@ -402,6 +435,10 @@ export const modules: ModuleData[] = [
         description: "Superposition und Messproblem auf makroskopischer Ebene.",
         progress: 0,
         iconName: "Cat",
+        experimentImage: {
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Schrodingers_cat.svg/640px-Schrodingers_cat.svg.png",
+            caption: "Schrödingers Katze: Die Katze ist in Superposition aus lebendig und tot, bis die Kiste geöffnet wird"
+        },
         theoryBites: [
             {
                 title: "Das Gedankenexperiment",
@@ -446,6 +483,10 @@ export const modules: ModuleData[] = [
         description: "Interferenz von C₆₀-Molekülen – Welle-Teilchen-Dualismus bei 720 amu.",
         progress: 0,
         iconName: "Hexagon",
+        experimentImage: {
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Buckminsterfullerene.svg/480px-Buckminsterfullerene.svg.png",
+            caption: "Buckminster-Fulleren C₆₀: 60 Kohlenstoffatome – dieses Molekül zeigt Interferenz am Doppelspalt"
+        },
         theoryBites: [
             {
                 title: "Das Zeilinger-Experiment (1999)",
@@ -490,6 +531,10 @@ export const modules: ModuleData[] = [
         description: "Entladung eines Zinkblechs durch UV-Licht – erster Hinweis auf den Photoeffekt.",
         progress: 0,
         iconName: "Zap",
+        experimentImage: {
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Photoelectric_effect.svg/640px-Photoelectric_effect.svg.png",
+            caption: "Photoelektrischer Effekt: Photonen treffen auf Metalloberfläche und lösen Elektronen aus"
+        },
         theoryBites: [
             {
                 title: "Der Hallwachs-Versuch (1888)",
@@ -535,6 +580,10 @@ export const modules: ModuleData[] = [
         progress: 0,
         iconName: "Sun",
         hasSimulation: true,
+        experimentImage: {
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Photoelectric_effect_diagram.svg/640px-Photoelectric_effect_diagram.svg.png",
+            caption: "Gegenfeldmethode: Gegenspannung U_g bremst Elektronen – bei U_g genau wird der Strom null"
+        },
         theoryBites: [
             {
                 title: "Das Gegenfeldmethode-Experiment",
@@ -580,6 +629,10 @@ export const modules: ModuleData[] = [
         description: "Photonen transportieren Energie E = hf und Impuls p = h/λ.",
         progress: 0,
         iconName: "Zap",
+        experimentImage: {
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/EM_spectrum.svg/640px-EM_spectrum.svg.png",
+            caption: "Elektromagnetisches Spektrum: Energie E = hf steigt von rechts nach links (Radio → Gamma)"
+        },
         theoryBites: [
             {
                 title: "Photonenenergie",
@@ -624,6 +677,10 @@ export const modules: ModuleData[] = [
         description: "Impulsübertrag von Photonen auf Elektronen – Beweis des Photonenimpulses.",
         progress: 0,
         iconName: "Crosshair",
+        experimentImage: {
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Compton-scattering.svg/640px-Compton-scattering.svg.png",
+            caption: "Compton-Streuung: Röntgenphoton trifft auf freies Elektron – Impulsbilanz wie bei einem Billard-Stoß"
+        },
         theoryBites: [
             {
                 title: "Das Compton-Experiment (1923)",
@@ -669,6 +726,10 @@ export const modules: ModuleData[] = [
         progress: 0,
         iconName: "RadioTower",
         hasSimulation: true,
+        experimentImage: {
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Roentgenstrahlung.svg/640px-Roentgenstrahlung.svg.png",
+            caption: "Röntgenröhre: Elektronen werden beschleunigt und beim Auftreffen auf die Anode gebremst – dabei entsteht Röntgenstrahlung"
+        },
         theoryBites: [
             {
                 title: "Bremsstrahlung",
