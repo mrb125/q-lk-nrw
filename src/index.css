@@ -20,7 +20,16 @@
 
 body {
   font-family: 'Outfit', sans-serif;
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
   background-color: var(--bg-color);
+}
+
+/* THEME 1: QUANTUM (Default) */
+body,
+body.theme-quantum {
   background-image:
     radial-gradient(circle at 0% 0%, rgba(0, 240, 255, 0.08) 0%, transparent 50%),
     radial-gradient(circle at 100% 100%, rgba(176, 82, 240, 0.08) 0%, transparent 50%),
@@ -28,14 +37,10 @@ body {
     linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
   background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
   background-attachment: fixed;
-  color: var(--text-main);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 
-/* Quanten-Interferenzmuster (Doppelspalt-Simulation als Hintergrund) */
-body::after {
+body::after,
+body.theme-quantum::after {
   content: "";
   position: fixed;
   top: 0;
@@ -62,6 +67,55 @@ body::after {
     opacity: 1;
   }
 }
+
+/* THEME 2: MINIMAL DARK */
+body.theme-dark {
+  background-image: none;
+  background-color: #0a0c10;
+}
+
+body.theme-dark::after {
+  display: none;
+}
+
+/* THEME 3: DEEP SPACE */
+body.theme-space {
+  background-color: #050510;
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 40px 70px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 50px 160px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(1.5px 1.5px at 90px 40px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(1.5px 1.5px at 130px 80px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 160px 120px, #ffffff, rgba(0, 0, 0, 0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  background-attachment: fixed;
+}
+
+body.theme-space::after {
+  display: none;
+}
+
+/* THEME 4: MATRIX / TERMINAL */
+body.theme-matrix {
+  --bg-color: #051005;
+  --accent-neon: #39ff14;
+  --accent-purple: #39ff14;
+  background-color: var(--bg-color);
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(57, 255, 20, 0.05) 0%, transparent 60%),
+    linear-gradient(rgba(57, 255, 20, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(57, 255, 20, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px, 20px 20px;
+  background-attachment: fixed;
+}
+
+body.theme-matrix::after {
+  display: none;
+}
+
+
 
 a {
   text-decoration: none;
