@@ -221,35 +221,95 @@ export const modules: ModuleData[] = [
     },
     {
         id: "unschaerfe",
-        topicNumber: "09",
+        topicNumber: "08",
         title: "Heisenbergsche Unschärferelation",
         description: "Ort und Impuls sind nicht gleichzeitig bestimmbar.",
         progress: 0,
         iconName: "EyeOff",
+        theoryBites: [
+            {
+                title: "Ort und Impuls",
+                classicalText: "Ort und Impuls (Geschwindigkeit) eines Teilchens lassen sich gleichzeitig beliebig genau messen.",
+                quantumText: "Nach Heisenberg können Ort und Impuls eines Quantenobjekts niemals gleichzeitig beliebig genau bestimmt werden: $\\Delta x \\cdot \\Delta p \\ge \\frac{h}{4\\pi}$."
+            }
+        ],
+        abiturTasks: [
+            {
+                afb: 'II',
+                operator: "Erklären",
+                question: "Erkläre anhand der Unschärferelation, warum das Bohrsche Atommodell kritisiert wird.",
+                answer: "Im Bohrschen Atommodell bewegen sich Elektronen auf festen Kreisbahnen. Dies würde bedeuten, dass Ort (Radius) und Impuls der Elektronen exakt bekannt wären, was im strikten Widerspruch zur Heisenbergschen Unschärferelation steht."
+            }
+        ]
     },
     {
         id: "fullerene",
-        topicNumber: "10",
+        topicNumber: "09",
         title: "Fullerene-Interferenz",
         description: "Beugung von großen Molekülen.",
         progress: 0,
         iconName: "Hexagon",
+        theoryBites: [
+            {
+                title: "Makromolekül-Interferenz",
+                classicalText: "Große Moleküle wie C60 bestehen aus 60 Atomen und verhalten sich eindeutig als klassische Teilchen ohne Welleneigenschaften.",
+                quantumText: "Selbst riesige Moleküle wie Fullerene (C60) zeigen am optischen Gitter messbare Interferenzmuster. Ihre De-Broglie-Wellenlänge ist extrem klein, aber unstrittig existent."
+            }
+        ],
+        abiturTasks: [
+            {
+                afb: 'I',
+                operator: "Nennen",
+                question: "Nenne die experimentelle Herausforderung für Interferenzversuche mit massereichen Molekülen wie Fullerenen.",
+                answer: "Die Wellenlänge $\\lambda$ von massereichen Molekülen ist winzig ($p = m \\cdot v$ ist hoch). Das Spaltmaß des Gitters muss in der Größenordnung der Wellenlänge liegen, weshalb extrem feine Gitterstrukturen und sehr langsame Molekülstrahlen benötigt werden."
+            }
+        ]
     },
     {
         id: "schroedinger",
-        topicNumber: "11",
+        topicNumber: "10",
         title: "Schrödingers Katze",
         description: "Makroskopische Überlagerungszustände.",
         progress: 0,
         iconName: "Cat",
+        theoryBites: [
+            {
+                title: "Das Gedankenexperiment",
+                classicalText: "Eine Katze in einer Box ist zu jedem Zeitpunkt objektiv entweder lebendig oder tot.",
+                quantumText: "In Schrödingers Gedankenexperiment ist die Katze mit einem quantenmechanischen Zerfall gekoppelt. Bis zur Messung (Öffnen der Box) befindet sich die Katze quantenmechanisch im Superpositionszustand 'lebendig und tot' zugleich."
+            }
+        ],
+        abiturTasks: [
+            {
+                afb: 'III',
+                operator: "Beurteilen",
+                question: "Beurteile die Aussagekraft von Schrödingers Katzen-Gedankenexperiment für die Interpretation der Quantenphysik.",
+                answer: "Es verdeutlicht paradoxe Konsequenzen der Kopenhagener Deutung. Eine lineare Superposition mikroskopischer Zustände (radioaktiver Zerfall) wird auf makroskopische Objekte übertragen, was in unserer Alltagswelt absurd erscheint, aber die zentrale Rolle des 'Beobachters' (Messung) aufzeigt."
+            }
+        ]
     },
     {
         id: "hallwachs",
-        topicNumber: "12",
+        topicNumber: "11",
         title: "Hallwachs-Versuch",
         description: "Grundlagen des lichtelektrischen Effekts.",
         progress: 0,
-        iconName: "Zap",
+        iconName: "Sun",
+        theoryBites: [
+            {
+                title: "Entladung per UV-Licht",
+                classicalText: "Licht, das lang genug einstrahlt, sollte durch Akkumulation genügend Energie liefern, um Elektronen zu lösen.",
+                quantumText: "Eine negativ geladene Zinkplatte wird unverzüglich entladen, aber nur bei Bestrahlung mit UV-Licht, nicht jedoch bei sichtbarem Licht (egal wie intensiv). Dies war der entscheidende erste Nachweis, dass Lichtportionen existieren."
+            }
+        ],
+        abiturTasks: [
+            {
+                afb: 'II',
+                operator: "Erklären",
+                question: "Erkläre, warum eine positiv geladene Zinkplatte unter UV-Licht auf dem Elektroskop anscheinend nicht entladen wird.",
+                answer: "Bei einer positiv geladenen Platte gibt es einen Elektronenmangel. Wenn das UV-Licht nun vereinzelt Elektronen auslöst, werden diese durch die starke positive Ladung der Platte sofort wieder angezogen. Der Zeiger des Elektroskops behält seinen Ausschlag fast unverändert bei."
+            }
+        ]
     },
     {
         id: "photoeffekt",
