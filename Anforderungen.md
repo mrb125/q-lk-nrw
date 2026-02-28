@@ -74,18 +74,20 @@ Siehe Walkthrough und früheren Changelog für Details zu:
 
 ---
 
-### 10. Bonus-Module & Mediale Anreicherung
+### 10. Mediale Anreicherung, Bonus-Level & Designs (Themes)
 
 **Anforderungen:**
 - 5 Zusatz-Level ("Über den Lehrplan hinaus"), verständlich für LK-Schüler.
 - Übersichtliche Navigation im Dashboard (separater "Bonus-Level" Bereich).
 - Kurzerklärung / Fazit-Boxen für den schnellen Überblick bei allen Themen.
 - Reale Experiment-Bilder (Wikimedia Commons) für alle 20 Themen eingebettet.
+- **Globaler Theme-Switcher**: Auswahl zwischen 4 verschiedenen visuellen Designs (Persistenz via localStorage).
 
 **Implementiert:**
 - `modules.ts`: 5x `isBonus: true` (Verschränkung, Bell, Quantenkrypto, Quantencomputer, Tunneleffekt) plus `shortExplanation` und `experimentImage` für alle 20 Module.
 - `Dashboard.tsx`: Zweigeteilte Ansicht (15 Pflichtmodule + 5 markierte Bonusmodule).
 - `LearningModule.tsx`: Neues Layout → Header, dann Sichten/TheoryBites, dann `shortExplanation` (als 💡 Fazit), dann das `experimentImage`.
+- `index.css` & `ThemeToggle.tsx`: Neues Dropdown oben rechts. Wählbare Themes: **Quanten-Feld** (Animierte Interferenz), **Deep Space** (Sternengrid), **Matrix** (Grünes Terminal) und **Minimal Dark**.
 
 ---
 
