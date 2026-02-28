@@ -32,6 +32,7 @@ export type ModuleData = {
     hasSimulation?: boolean;
     isBonus?: boolean;
     experimentImage?: { url: string; caption: string };
+    shortExplanation?: string;
 };
 
 export const modules: ModuleData[] = [
@@ -48,6 +49,7 @@ export const modules: ModuleData[] = [
             url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Single_slit_and_double_slit2.jpg/640px-Single_slit_and_double_slit2.jpg",
             caption: "Doppelspaltmuster: Links Einfachspalt, rechts Doppelspalt-Interferenz"
         },
+        shortExplanation: "Wenn Einzelphotonen nacheinander auf einen Doppelspalt treffen, landen sie zunächst als zufällig verteilte Punkte auf dem Detektor. Nach Tausenden von Photonen zeigt sich jedoch ein typisches Interferenzmuster mit hellen und dunklen Streifen – obwohl jedes Photon einzeln unterwegs war. Dies beweist, dass Photonen sich wie Wellen verhalten (Ausbreitung als Wahrscheinlichkeitswelle) und gleichzeitig wie Teilchen (punktförmige Detektion). Der Kern der Quantenmechanik: Wo genau ein Photon landet, kann man nicht vorhersagen – nur mit welcher Wahrscheinlichkeit.",
         theoryBites: [
             {
                 title: "Das Muster auf dem Schirm",
@@ -102,6 +104,7 @@ export const modules: ModuleData[] = [
             url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Polarizacio.jpg/640px-Polarizacio.jpg",
             caption: "Polarisation von Licht: Zwei gekreuzte Polarisationsfilter löschen das Licht aus"
         },
+        shortExplanation: "Licht ist eine Transversalwelle – es schwingt senkrecht zur Ausbreitungsrichtung. Ein Polarisationsfilter lässt nur Licht einer bestimmten Schwingungsebene durch. Zwei senkrecht zueinander stehende Filter löschen das Licht vollständig aus. Quantenmechanisch entscheidet jedes einzelne Photon beim Auftreffen auf den Filter probabilistisch: Es wird entweder transmittiert (mit Wahrscheinlichkeit cos²θ) oder absorbiert – das Gesetz von Malus gilt auch für Einzelphotonen.",
         theoryBites: [
             {
                 title: "Was ist Polarisation?",
@@ -150,6 +153,7 @@ export const modules: ModuleData[] = [
             url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Interference_of_two_waves.svg/640px-Interference_of_two_waves.svg.png",
             caption: "Konstruktive und destruktive Interferenz – je nach Welcher-Weg-Information"
         },
+        shortExplanation: "Interferenz und Welcher-Weg-Information schließen sich gegenseitig aus – das ist das Prinzip der Komplementarität (Bohr, 1928). Sobald man misst, durch welchen Spalt ein Photon gegangen ist, verschwindet das Interferenzmuster. Die Schärfe des Musters und die Genauigkeit der Weg-Information sind komplementäre Größen: Eine vollständige Kenntnis des Weges bedeutet null Interferenz. Dieses Prinzip gilt universell für alle Quantenobjekte.",
         theoryBites: [
             {
                 title: "Komplementarität",
@@ -198,6 +202,7 @@ export const modules: ModuleData[] = [
             url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Mach-Zehnder_interferometer.svg/640px-Mach-Zehnder_interferometer.svg.png",
             caption: "Aufbau des Mach-Zehnder-Interferometers mit zwei Strahlteilern (BS) und Spiegeln (M)"
         },
+        shortExplanation: "Das Mach-Zehnder-Interferometer teilt einen Lichtstrahl an einem halbdurchlässigen Spiegel in zwei Wege auf und führt sie wieder zusammen. Ohne Störung landet das Photon immer am selben Detektor (vollständige Interferenz). Wird ein Arm blockiert oder ein Detektor eingebaut, verliert das Photon seine Superposition – es landet zu 50 % bei jedem Detektor. Das Experiment demonstriert, wie Messung die Quantenrealität verändert.",
         theoryBites: [
             {
                 title: "Aufbau des Interferometers",
@@ -246,6 +251,7 @@ export const modules: ModuleData[] = [
             url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Delayed_Choice_Quantum_Eraser.svg/640px-Delayed_Choice_Quantum_Eraser.svg.png",
             caption: "Schema des Delayed-Choice-Quantenradierer-Experiments"
         },
+        shortExplanation: "Wheeler schlug vor, die Wahl der Messmethode (Interferenz oder Welcher-Weg) erst nach dem Durchgang des Photons durch den Apparat zu treffen. Das Ergebnis passt sich dennoch der nachträglichen Entscheidung an – als ob das Photon gewusst hätte, was gemessen wird. Dieses Experiment zeigt fundamental: Quantenobjekte haben zwischen zwei Messungen keine klassische Realität. Dem Photon kann kein Weg zugeschrieben werden, bevor es gemessen wurde.",
         theoryBites: [
             {
                 title: "Das Experiment (Wheeler)",
@@ -295,6 +301,7 @@ export const modules: ModuleData[] = [
             url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Electron_diffraction_pattern.jpg/480px-Electron_diffraction_pattern.jpg",
             caption: "Elektronenbeugungsmuster an einem polykristallinen Aluminiumfilm – die konzentrischen Ringe beweisen die Wellennatur der Elektronen"
         },
+        shortExplanation: "1927 schossen Davisson und Germer Elektronen auf einen Nickelkristall und beobachteten scharfe Reflexionsmaxima bei bestimmten Winkeln – genau wie bei Röntgenbeugung an Kristallen. Dies bewies experimentell, dass Elektronen Welleneigenschaften besitzen. Der Abstand der Beugungsmaxima stimmte exakt mit der De-Broglie-Wellenlänge λ = h/p überein. Später erzeugten Tonomura und Jönsson Interferenzmuster auch mit einzeln geschossenen Elektronen.",
         theoryBites: [
             {
                 title: "Bragg-Reflexion am Kristall",
@@ -343,6 +350,7 @@ export const modules: ModuleData[] = [
             url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Double-slit_experiment_results_Tanamura_2.jpg/480px-Double-slit_experiment_results_Tanamura_2.jpg",
             caption: "Tonomura-Experiment: Aufbau des Elektroneninterferenzmusters aus Einzelelektronen – Beweis für Materiewellen"
         },
+        shortExplanation: "De Broglie postuliertee 1924, dass jedem Teilchen mit Impuls p eine Wellenlänge λ = h/p zugeordnet werden kann – die Materiewelle. Je größer der Impuls (schneller oder schwerer), desto kürzer die Wellenlänge und desto schwieriger zu messen. Elektronen bei typischen Beschleunigungsspannungen haben Wellenlängen im Picometerbereich – kleiner als Atomabstände in Kristallen, was Beugungsexperimente ermöglicht.",
         theoryBites: [
             {
                 title: "Die Hypothese De Broglies (1924)",
@@ -391,6 +399,7 @@ export const modules: ModuleData[] = [
             url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Heisenberg_gamma-ray_microscope.svg/480px-Heisenberg_gamma-ray_microscope.svg.png",
             caption: "Heisenbergs Gammastrahlen-Mikroskop: Gedankenexperiment zur Unschärferelation"
         },
+        shortExplanation: "Die Heisenbergsche Unschärferelation Δx · Δp ≥ ħ/2 besagt, dass Ort und Impuls eines Quantenobjekts prinzipiell nicht gleichzeitig beliebig genau bekannt sein können – nicht wegen technischer Unzulänglichkeiten, sondern als Naturgesetz. Je genauer man den Ort misst, desto unschärfer wird der Impuls und umgekehrt. Diese Unschärfe ist keine Folge der Messstörung, sondern eine fundamentale Eigenschaft der Wellennatur.",
         theoryBites: [
             {
                 title: "Die Unschärferelation",
@@ -439,6 +448,7 @@ export const modules: ModuleData[] = [
             url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Schrodingers_cat.svg/640px-Schrodingers_cat.svg.png",
             caption: "Schrödingers Katze: Die Katze ist in Superposition aus lebendig und tot, bis die Kiste geöffnet wird"
         },
+        shortExplanation: "Schrödinger konstruierte 1935 dieses Gedankenexperiment als Kritik: Eine Katze in einer Kiste wird durch den radioaktiven Zerfall eines Atoms kontrolliert – zerfällt es, stirbt sie. Nach der Quantenmechanik wäre die Katze vor dem Öffnen der Kiste in einer Superposition aus 'lebendig' und 'tot'. Schrödinger wollte damit zeigen, dass die naive Anwendung der QM auf makroskopische Objekte zu absurden Aussagen führt. Heute erklärt Dekohärenz, warum Superpositionszustände für große Systeme nicht beobachtbar sind.",
         theoryBites: [
             {
                 title: "Das Gedankenexperiment",
@@ -487,6 +497,7 @@ export const modules: ModuleData[] = [
             url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Buckminsterfullerene.svg/480px-Buckminsterfullerene.svg.png",
             caption: "Buckminster-Fulleren C₆₀: 60 Kohlenstoffatome – dieses Molekül zeigt Interferenz am Doppelspalt"
         },
+        shortExplanation: "1999 zeigte die Gruppe um Anton Zeilinger in Wien, dass C₆₀-Moleküle (Fußball-förmige Kohlenstoffkäfige aus 60 Atomen) an einem Nanogitter interferieren. Die De-Broglie-Wellenlänge betrug nur ~2,5 pm – viel kleiner als das Molekül selbst! Das Experiment bewies, dass der Welle-Teilchen-Dualismus nicht auf subatomare Teilchen beschränkt ist. Neuere Experimente zeigen Interferenz für noch größere Moleküle mit über 2000 Atomen.",
         theoryBites: [
             {
                 title: "Das Zeilinger-Experiment (1999)",
@@ -535,6 +546,7 @@ export const modules: ModuleData[] = [
             url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Photoelectric_effect.svg/640px-Photoelectric_effect.svg.png",
             caption: "Photoelektrischer Effekt: Photonen treffen auf Metalloberfläche und lösen Elektronen aus"
         },
+        shortExplanation: "Wilhelm Hallwachs beobachtete 1888: Ein negativ geladenes Zinkblech verliert seine Ladung, wenn UV-Licht darauf fällt – sichtbares Licht hat diesen Effekt nicht. Die entscheidende Größe ist die Lichtfrequenz, nicht die Intensität. Einstein erklärte dies 1905: Licht kommt in diskreten Energiepaketen (Photonen) mit E = hf. Nur wenn hf ≥ W_A (Austrittsarbeit), kann ein Elektron herausgelöst werden. Diese Erkenntnis brachte Einstein den Nobelpreis 1921.",
         theoryBites: [
             {
                 title: "Der Hallwachs-Versuch (1888)",
@@ -584,6 +596,7 @@ export const modules: ModuleData[] = [
             url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Photoelectric_effect_diagram.svg/640px-Photoelectric_effect_diagram.svg.png",
             caption: "Gegenfeldmethode: Gegenspannung U_g bremst Elektronen – bei U_g genau wird der Strom null"
         },
+        shortExplanation: "Beim Photoeffekt treffen Photonen auf eine Metallkathode und lösen Elektronen heraus. Die Energie jedes Photons E = hf bestimmt, ob ein Elektron herausgelöst wird (hf ≥ W_A) und mit welcher kinetischen Energie (E_kin = hf − W_A). Die Gegenfeldmethode (Millikan, 1916) misst U_g präzise: Das Gegenfeld stoppt die Elektronen genau bei e·U_g = E_kin. Aufgetragen gegen die Frequenz ergibt sich die Steigung h/e – Millikan bestimmte so h auf 0,5 % genau.",
         theoryBites: [
             {
                 title: "Das Gegenfeldmethode-Experiment",
@@ -633,6 +646,7 @@ export const modules: ModuleData[] = [
             url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/EM_spectrum.svg/640px-EM_spectrum.svg.png",
             caption: "Elektromagnetisches Spektrum: Energie E = hf steigt von rechts nach links (Radio → Gamma)"
         },
+        shortExplanation: "Photonen sind masselose Teilchen des elektromagnetischen Feldes. Trotz fehlender Ruhemasse tragen sie Energie E = h·f und Impuls p = h/λ = E/c. Die Energie eines einzelnen Photons hängt nur von der Frequenz ab – blaues Licht hat etwa doppelt so viel Energie pro Photon wie rotes. Im Compton-Effekt überträgt das Photon beim Stoß mit einem Elektron Impuls und Energie – genau wie ein klassisches Teilchen.",
         theoryBites: [
             {
                 title: "Photonenenergie",
@@ -681,6 +695,7 @@ export const modules: ModuleData[] = [
             url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Compton-scattering.svg/640px-Compton-scattering.svg.png",
             caption: "Compton-Streuung: Röntgenphoton trifft auf freies Elektron – Impulsbilanz wie bei einem Billard-Stoß"
         },
+        shortExplanation: "Arthur Compton bestrahlte 1923 Kohlenstoff mit Röntgenstrahlung und maß die Wellenlänge der gestreuten Strahlung. Dabei beobachtete er eine Wellenlängenverschiebung Δλ = λ_c·(1−cosθ), die von der klassischen Physik nicht erklärt werden kann. Die quantenmechanische Erklärung: Das Röntgenphoton stößt wie ein Billardball mit dem Elektron zusammen, überträgt dabei Impuls und verliert Energie – dadurch nimmt seine Wellenlänge zu. Dieser Effekt bewies endgültig die Teilchennatur des Lichts.",
         theoryBites: [
             {
                 title: "Das Compton-Experiment (1923)",
@@ -730,6 +745,7 @@ export const modules: ModuleData[] = [
             url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Roentgenstrahlung.svg/640px-Roentgenstrahlung.svg.png",
             caption: "Röntgenröhre: Elektronen werden beschleunigt und beim Auftreffen auf die Anode gebremst – dabei entsteht Röntgenstrahlung"
         },
+        shortExplanation: "In einer Röntgenröhre werden Elektronen durch eine Hochspannung U beschleunigt und treffen auf die Anode. Beim Abbremsen emittieren sie Bremsstrahlung – ein kontinuierliches Spektrum bis zur kurzwelligen Grenze λ_min = hc/(eU). Zusätzlich entstehen scharfe charakteristische Linien, wenn beschleunigte Elektronen Elektronen aus inneren Atomschalen herausschlagen und Elektronen aus höheren Schalen nachrücken. Bragg nutzte Röntgenstrahlung zur Kristallstrukturanalyse.",
         theoryBites: [
             {
                 title: "Bremsstrahlung",
@@ -779,6 +795,7 @@ export const modules: ModuleData[] = [
         progress: 0,
         iconName: "Link",
         isBonus: true,
+        shortExplanation: "Wenn zwei Quantenobjekte miteinander wechselwirken, können sie einen gemeinsamen Quantenzustand bilden – sie sind verschränkt. Misst man eine Eigenschaft des einen Teilchens, ist sofort bekannt, was eine Messung am anderen ergeben würde – egal wie weit die Teilchen voneinander entfernt sind. Einstein nannte das 'spukhafte Fernwirkung' und glaubte, es müsste verborgene Variablen geben. Bell (1964) und Aspect (1982) bewiesen experimentell: Verborgene Variablen scheiden aus – die Quantenmechanik ist vollständig.",
         theoryBites: [
             {
                 title: "Was ist Verschränkung?",
@@ -828,6 +845,7 @@ export const modules: ModuleData[] = [
         progress: 0,
         iconName: "BarChart2",
         isBonus: true,
+        shortExplanation: "John Bell entwickelte 1964 eine mathematische Ungleichung, die klassische Theorien (mit verborgenen Variablen) von der Quantenmechanik unterscheidet. Für klassische Systeme gilt S ≤ 2, für verschränkte Quantenteilchen sagt die QM S ≤ 2√2 ≈ 2,83 voraus. Alain Aspects Experimente (1982) maßen S ≈ 2,82 – ein klarer Beweis, dass die Natur nicht klassisch-realistisch ist. Aspect, Clauser und Zeilinger erhielten dafür 2022 den Nobelpreis für Physik.",
         theoryBites: [
             {
                 title: "Das Bell'sche Theorem (1964)",
@@ -872,6 +890,7 @@ export const modules: ModuleData[] = [
         progress: 0,
         iconName: "Lock",
         isBonus: true,
+        shortExplanation: "Das BB84-Protokoll (Bennett & Brassard, 1984) nutzt einzelne polarisierte Photonen zum sicheren Schlüsselaustausch. Sender (Alice) und Empfänger (Bob) wählen zufällig zwischen zwei Polarisationsbasen. Versucht jemand abzuhören, verändert jede Messung zwangsläufig den Quantenzustand der Photonen. Diese Störung ist statistisch nachweisbar – Abhörversuche können daher immer erkannt werden. Die Sicherheit basiert auf Naturgesetzen, nicht auf mathematischer Komplexität.",
         theoryBites: [
             {
                 title: "Warum klassische Kryptographie scheitert",
@@ -916,6 +935,7 @@ export const modules: ModuleData[] = [
         progress: 0,
         iconName: "Cpu",
         isBonus: true,
+        shortExplanation: "Ein Quantencomputer ersetzt klassische Bits durch Qubits, die dank Superposition gleichzeitig 0 und 1 repräsentieren können. Zusätzlich können Qubits miteinander verschränkt werden, was exponentielle Parallelverarbeitung ermöglicht. Der Shor-Algorithmus kann auf einem fehlerfreien Quantencomputer große Zahlen exponentiell schneller faktorisieren als klassische Rechner. Das größte Problem ist Dekohärenz: selbst stärkste Kühlung auf nahe 0 K schützt Qubits nur für kurze Zeit.",
         theoryBites: [
             {
                 title: "Bit vs. Qubit",
@@ -965,6 +985,7 @@ export const modules: ModuleData[] = [
         progress: 0,
         iconName: "Zap",
         isBonus: true,
+        shortExplanation: "In der klassischen Physik kann ein Teilchen eine Energiebarriere nur überwinden, wenn seine kinetische Energie größer als die Barrierenenergie ist. In der Quantenmechanik klingt die Wellenfunktion in der Barriere exponentiell ab, verschwindet aber nicht vollständig – es bleibt eine endliche Wahrscheinlichkeit, das Teilchen dahinter zu finden. Dieses Tunneln ermöglicht Alpha-Zerfall, die Wirkung des Rastertunnelmikroskops und sogar die Kernfusion in der Sonne, die klassisch nicht stattfinden dürfte.",
         theoryBites: [
             {
                 title: "Was ist der Tunneleffekt?",
