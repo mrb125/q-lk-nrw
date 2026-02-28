@@ -5,6 +5,9 @@ import Strukturlegekarten from './views/Strukturlegekarten';
 import Explore from './views/Explore';
 import Flashcards from './views/Flashcards';
 import Formulas from './views/Formulas';
+import AbiturSimulation from './views/AbiturSimulation';
+import Badges from './views/Badges';
+import Auswertung from './views/Auswertung';
 import Navigation from './components/Navigation';
 import './index.css';
 
@@ -20,6 +23,9 @@ function App() {
             <Route path="/strukturlegekarten" element={<Strukturlegekarten />} />
             <Route path="/flashcards" element={<Flashcards />} />
             <Route path="/formulas" element={<Formulas />} />
+            <Route path="/abitur" element={<AbiturSimulation />} />
+            <Route path="/badges" element={<Badges />} />
+            <Route path="/auswertung" element={<Auswertung />} />
           </Routes>
         </main>
         <Navigation />
