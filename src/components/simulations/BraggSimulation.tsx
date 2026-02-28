@@ -29,7 +29,7 @@ const BraggSimulation: React.FC = () => {
         // Draw crystal lattice layers
         ctx.strokeStyle = 'rgba(100,150,255,0.4)';
         ctx.lineWidth = 1;
-        for (let y of [layerY, layer2Y]) {
+        for (const y of [layerY, layer2Y]) {
             ctx.beginPath();
             ctx.setLineDash([6, 4]);
             ctx.moveTo(0, y);

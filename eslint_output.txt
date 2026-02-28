@@ -1,0 +1,78 @@
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\components\ModuleCard.tsx
+  13:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\components\SimulationDoppelspalt.tsx
+  70:8  warning  React Hook useEffect has a missing dependency: 'animate'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\components\SimulationPhotoeffekt.tsx
+  126:8  warning  React Hook useEffect has a missing dependency: 'animate'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\components\legekarten\CustomNodes.tsx
+  233:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\components\simulations\BraggSimulation.tsx
+  32:18  error  'y' is never reassigned. Use 'const' instead  prefer-const
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\components\simulations\DoppelspaltSimulation.tsx
+  75:13  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\data\legekartenData.ts
+  62:149  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  63:138  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  64:137  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  65:126  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  66:138  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  67:130  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  82:137  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  83:149  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  84:140  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  85:138  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  86:135  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\views\Badges.tsx
+  9:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\views\Badges.tsx:9:9
+   7 |
+   8 |     useEffect(() => {
+>  9 |         setEarned(getEarnedBadges());
+     |         ^^^^^^^^^ Avoid calling setState() directly within an effect
+  10 |     }, []);
+  11 |
+  12 |     const earnedList = BADGES.filter(b => earned.has(b.id));  react-hooks/set-state-in-effect
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\views\Flashcards.tsx
+  55:20  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\views\Flashcards.tsx:55:20
+  53 |     useEffect(() => {
+  54 |         const saved = localStorage.getItem('q-lk-flashcards-known');
+> 55 |         if (saved) setKnownCards(new Set(JSON.parse(saved)));
+     |                    ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  56 |     }, []);
+  57 |
+  58 |     useEffect(() => {  react-hooks/set-state-in-effect
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\views\Strukturlegekarten.tsx
+   70:70   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   71:74   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  226:50   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  412:30   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  628:139  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+Ô£û 24 problems (22 errors, 2 warnings)
+  1 error and 0 warnings potentially fixable with the `--fix` option.
+
