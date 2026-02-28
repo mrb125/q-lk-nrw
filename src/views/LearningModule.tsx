@@ -63,26 +63,6 @@ const LearningModule: React.FC = () => {
                     {moduleData.description}
                 </p>
             </header>
-
-            {moduleData.shortExplanation && (
-                <div style={{
-                    background: 'rgba(0, 240, 255, 0.06)',
-                    border: '1px solid rgba(0, 240, 255, 0.2)',
-                    borderLeft: '4px solid var(--accent-neon)',
-                    borderRadius: '8px',
-                    padding: '1.25rem 1.5rem',
-                    marginBottom: '2.5rem',
-                    fontSize: '1rem',
-                    lineHeight: '1.75',
-                    color: 'var(--text-main)',
-                }}>
-                    <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--accent-neon)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '0.5rem' }}>
-                        💡 Kurzerklärung
-                    </div>
-                    {moduleData.shortExplanation}
-                </div>
-            )}
-
             <section>
                 {!hasContent ? (
                     <div className="glass-panel" style={{ padding: '2rem', textAlign: 'center', color: 'var(--text-muted)' }}>
@@ -105,6 +85,26 @@ const LearningModule: React.FC = () => {
                                         isRevealed={showQuantumView}
                                     />
                                 ))}
+
+                                {moduleData.shortExplanation && (
+                                    <div style={{
+                                        background: 'rgba(0, 240, 255, 0.06)',
+                                        border: '1px solid rgba(0, 240, 255, 0.2)',
+                                        borderLeft: '4px solid var(--accent-neon)',
+                                        borderRadius: '8px',
+                                        padding: '1.25rem 1.5rem',
+                                        marginTop: '2rem',
+                                        marginBottom: '1rem',
+                                        fontSize: '1rem',
+                                        lineHeight: '1.75',
+                                        color: 'var(--text-main)',
+                                    }}>
+                                        <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--accent-neon)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '0.5rem' }}>
+                                            💡 Fazit / Zusammenfassung
+                                        </div>
+                                        {moduleData.shortExplanation}
+                                    </div>
+                                )}
 
                                 {moduleData.experimentImage && (
                                     <div style={{
@@ -231,7 +231,7 @@ const LearningModule: React.FC = () => {
                     </>
                 )}
             </section>
-        </div>
+        </div >
     );
 };
 
