@@ -50,7 +50,32 @@ const Dashboard: React.FC = () => {
 
             <section>
                 <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Lernmodule</h2>
-                {modules.map(mod => (
+                {modules.filter(m => !m.isBonus).map(mod => (
+                    <ModuleCard
+                        key={mod.id}
+                        data={mod}
+                        onClick={() => handleModuleClick(mod.id)}
+                    />
+                ))}
+            </section>
+
+            <section style={{ marginTop: '2.5rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
+                    <h2 style={{ fontSize: '1.5rem', margin: 0 }}>⭐ Bonus-Level</h2>
+                    <span style={{
+                        background: 'rgba(255,209,102,0.15)',
+                        color: '#ffd166',
+                        border: '1px solid #ffd166',
+                        padding: '0.15rem 0.6rem',
+                        borderRadius: '99px',
+                        fontSize: '0.75rem',
+                        fontWeight: 700,
+                    }}>Über den Lehrplan hinaus</span>
+                </div>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1.25rem' }}>
+                    Faszinierende Themen für neugierige Köpfe – nicht abiturrelevant, aber spannend.
+                </p>
+                {modules.filter(m => m.isBonus).map(mod => (
                     <ModuleCard
                         key={mod.id}
                         data={mod}

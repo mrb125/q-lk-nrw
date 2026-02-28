@@ -40,18 +40,7 @@ const ModuleCard: React.FC<ModuleCardProps> = ({ data, onClick }) => {
             </div>
 
             <div style={{ flex: 1, paddingRight: '1rem' }}>
-                <div style={{
-                    display: 'inline-block',
-                    background: 'rgba(0, 240, 255, 0.15)',
-                    color: 'var(--accent-neon)',
-                    padding: '0.15rem 0.5rem',
-                    borderRadius: '4px',
-                    fontSize: '0.75rem',
-                    fontWeight: 700,
-                    marginBottom: '0.5rem'
-                }}>
-                    Thema {data.topicNumber}
-                </div>
+
                 <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 600 }}>
                     {data.title}
                 </h3>

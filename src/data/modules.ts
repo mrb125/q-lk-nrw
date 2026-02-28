@@ -30,6 +30,7 @@ export type ModuleData = {
     abiturTasks?: AbiturTaskData[];
     resources?: ResourceData[];
     hasSimulation?: boolean;
+    isBonus?: boolean;
 };
 
 export const modules: ModuleData[] = [
@@ -702,6 +703,241 @@ export const modules: ModuleData[] = [
         ],
         resources: [
             { title: "LEIFIphysik: Röntgenstrahlung", description: "Entstehung und Spektrum der Röntgenstrahlung.", url: "https://www.leifiphysik.de/atomphysik/roentgenstrahlung", type: 'leifi' },
+        ],
+    },
+
+    // ═══════════════════════════════════════════════════════════════════════════
+    // BONUS-LEVEL: Über den Lehrplan hinaus
+    // ═══════════════════════════════════════════════════════════════════════════
+
+    {
+        id: "verschraenkung",
+        topicNumber: "B1",
+        title: "Quantenverschränkung",
+        description: "EPR-Paradox, Spukhafte Fernwirkung und Verschränkung.",
+        progress: 0,
+        iconName: "Link",
+        isBonus: true,
+        theoryBites: [
+            {
+                title: "Was ist Verschränkung?",
+                classicalText: "Klassisch: Zwei Objekte können unabhängig voneinander existieren. Kennt man ein Objekt, weiß man nichts über das andere (sofern kein Signal ausgetauscht wurde).",
+                quantumText: "Verschränkte Teilchen (z.B. Photonen-Paare aus Parametrische Fluoreszenz) teilen denselben Quantenzustand. Misst man Teilchen A, kollabiert sofort der Zustand von Teilchen B – egal wie weit entfernt. Einstein nannte es 'spukhafte Fernwirkung'.",
+            },
+            {
+                title: "EPR-Paradox (Einstein, Podolsky, Rosen, 1935)",
+                classicalText: "Einstein behauptete: Quantenmechanik ist unvollständig. Es muss 'verborgene Variablen' geben, die das Ergebnis schon vorher festlegen – wie versteckte Informationen in einem Brief.",
+                quantumText: "Bell (1964) und Aspect (1982) zeigten experimentell: Verborgene Variablen scheiden aus! Die Korrelationen verschränkter Teilchen verletzen die Bell'schen Ungleichungen – ein rein quantenmechanisches Ergebnis ohne klassische Erklärung.",
+            },
+            {
+                title: "Schneller als Licht?",
+                classicalText: "Der sofortige Kollaps über beliebige Distanzen klingt nach überlichtschneller Signalübertragung.",
+                quantumText: "Nein – man kann keine Information schneller als Licht übertragen! Die Messergebnisse sind zufällig. Erst der Vergleich beider Messwerte (klassisch, also mit <c) zeigt die Korrelation. Die Relativitätstheorie bleibt verletzt.",
+            },
+        ],
+        abiturTasks: [
+            {
+                afb: 'I',
+                operator: "Beschreiben",
+                question: "Beschreibe in eigenen Worten, was man unter zwei verschränkten Photonen versteht.",
+                answer: "Zwei Photonen sind verschränkt, wenn ihr Quantenzustand (z.B. Polarisation) nicht unabhängig beschrieben werden kann. Die Messung des einen Photons liefert sofort Informationen über das andere, unabhängig von ihrer räumlichen Trennung.",
+            },
+            {
+                afb: 'II',
+                operator: "Erläutern",
+                question: "Erläutere, warum Quantenverschränkung nicht zur Übertragung von Information schneller als Licht genutzt werden kann.",
+                answer: "Die Messergebnisse eines einzelnen Teilchens sind zufällig und können nicht kontrolliert werden. Um die Korrelation festzustellen, muss man beide Ergebnisse vergleichen – dieser Vergleich geschieht klassisch (≤ c). Kein Nutzsignal kann übertragen werden.",
+            },
+            {
+                afb: 'III',
+                operator: "Beurteilen",
+                question: "Einstein behauptete, verschränkte Teilchen seien wie Handschuhe: Zieht man einen an, weiß man sofort, welcher der andere ist. Beurteile diesen Vergleich.",
+                answer: "Der Vergleich ist unvollständig. Bei Handschuhen ist die Eigenschaft (links/rechts) schon beim Packen festgelegt – 'verborgene Variable'. Die Bell'schen Ungleichungen schließen solche klassischen verborgenen Variablen jedoch aus. Die Korrelation entsteht erst bei der Messung, nicht vorher.",
+            },
+        ],
+        resources: [
+            { title: "Welt der Physik: Quantenverschränkung", description: "Verständliche Einführung.", url: "https://www.weltderphysik.de/gebiet/quanten/quantenverschraenkung/", type: 'article' },
+        ],
+    },
+    {
+        id: "bell",
+        topicNumber: "B2",
+        title: "Bell'sche Ungleichungen",
+        description: "Mathematischer Beweis: Die Quantenwelt ist nicht klassisch.",
+        progress: 0,
+        iconName: "BarChart2",
+        isBonus: true,
+        theoryBites: [
+            {
+                title: "Das Bell'sche Theorem (1964)",
+                classicalText: "Klassisch: Mit verborgenen Variablen ließen sich Korrelationen zwischen Teilchen auf max. 2 begrenzen (Bell-Grenze S ≤ 2).",
+                quantumText: "Quantenmechanik sagt voraus: S ≤ 2√2 ≈ 2,828. Experimente (Aspect 1982, Zeilinger 1998, loophole-frei 2015) messen S > 2 – ein direkter Beweis, dass keine lokalen verborgenen Variablen existieren.",
+            },
+            {
+                title: "CHSH-Ungleichung",
+                classicalText: "Die CHSH-Form der Bell-Ungleichung lautet: |S| = |⟨A₁B₁⟩ + ⟨A₁B₂⟩ + ⟨A₂B₁⟩ - ⟨A₂B₂⟩| ≤ 2 für alle lokalen Theorien.",
+                quantumText: "Für verschränkte Photonen mit optimaler Winkelwahl (22,5°-Schritten) misst man S ≈ 2,82 und damit eine klare Verletzung. Die Natur ist nichtlokal – oder nichtrealistisch.",
+            },
+        ],
+        abiturTasks: [
+            {
+                afb: 'I',
+                operator: "Nennen",
+                question: "Nenne das Ziel des Bell'schen Theorems und was es widerlegt.",
+                answer: "Bell's Theorem zeigt, dass keine lokale, realistische Theorie mit verborgenen Variablen die Vorhersagen der Quantenmechanik reproduzieren kann.",
+            },
+            {
+                afb: 'II',
+                operator: "Erläutern",
+                question: "Was bedeutet es, dass Aspekts Experiment die Bell-Ungleichung 'verletzt'?",
+                answer: "Die gemessene Korrelation S > 2 überschreitet die klassisch maximal mögliche Grenze. Das bedeutet: Die Natur verhält sich nicht wie ein klassisches System mit vorher festgelegten Eigenschaften. Quantenmechanik ist experimentell bestätigt; verborgene Variablen scheiden aus.",
+            },
+            {
+                afb: 'III',
+                operator: "Beurteilen",
+                question: "Welche philosophischen Konsequenzen zieht die Verletzung der Bell-Ungleichungen?",
+                answer: "Entweder ist die Natur nichtlokal (Messung an A beeinflusst B sofort) ODER nichtrealistisch (Eigenschaften existieren nicht vor der Messung) – oder beides. Einsteins 'lokaler Realismus' ist experimentell widerlegt. Der Nobelpreis 2022 geht an Aspect, Clauser und Zeilinger.",
+            },
+        ],
+        resources: [
+            { title: "Welt der Physik: Bell-Ungleichungen", description: "Nobel 2022: Quanten-Nichtlokalität.", url: "https://www.weltderphysik.de/gebiet/quanten/", type: 'article' },
+        ],
+    },
+    {
+        id: "quantenkrypto",
+        topicNumber: "B3",
+        title: "Quantenkryptographie",
+        description: "BB84-Protokoll: absolut abhörsicherer Schlüsselaustausch durch Quantenphysik.",
+        progress: 0,
+        iconName: "Lock",
+        isBonus: true,
+        theoryBites: [
+            {
+                title: "Warum klassische Kryptographie scheitert",
+                classicalText: "Klassisch: Jede digitale Nachricht kann prinzipiell abgehört und gespeichert werden. Quantencomputer könnten RSA-Verschlüsselung brechen.",
+                quantumText: "Quantenkryptographie nutzt die Quantenmechanik selbst als Schutz: Jeder Abhörversuch verändert den Quantenzustand messbarer Photonen und kann damit erkannt werden.",
+            },
+            {
+                title: "BB84-Protokoll (Bennett & Brassard, 1984)",
+                classicalText: "Klassisch: Ein Schlüssel muss auf einem sicheren Kanal ausgetauscht werden – klassisch immer ein Problem.",
+                quantumText: "Alice sendet einzelne Photonen in zufälligen Polarisationszuständen (0°/90° oder ±45°). Bob misst mit zufällig gewählten Basen. Lauscht Eve, macht sie Messfehler (25% Fehlerrate!), die statistisch erkennbar sind – absolute Sicherheit durch Physik.",
+            },
+        ],
+        abiturTasks: [
+            {
+                afb: 'I',
+                operator: "Beschreiben",
+                question: "Beschreibe das Grundprinzip des BB84-Protokolls.",
+                answer: "Alice sendet einzelne Photonen in zufälligen Polarisationsbasen. Bob misst in zufälligen Basen. Anschließend vergleichen sie (klassisch), in welchen Fällen sie dieselbe Basis verwendet haben – der Rest wird weggeworfen. Das Ergebnis ist ein gemeinsamer geheimer Schlüssel.",
+            },
+            {
+                afb: 'II',
+                operator: "Erläutern",
+                question: "Erläutere, warum ein Lauschangriff im BB84-Protokoll immer entdeckt werden kann.",
+                answer: "Wenn Eve ein Photon misst, wählt sie zufällig eine Basis. In 50% der Fälle wählt sie die falsche Basis und verändert damit den Photonzustand. Das erzeugt bei Bob Messfehler (~25% Fehlerrate). Alice und Bob überprüfen statistisch einen Teil des Schlüssels – eine zu hohe Fehlerrate verrät Eve.",
+            },
+            {
+                afb: 'III',
+                operator: "Beurteilen",
+                question: "Beurteile, warum Quantenkryptographie als 'absolut sicher' gilt – im Gegensatz zu klassischer Verschlüsselung.",
+                answer: "Klassische Sicherheit basiert auf mathematischer Schwierigkeit (z.B. Faktorisierung großer Zahlen) – grundsätzlich knackbar mit genug Rechenleistung. Quantenkryptographie-Sicherheit basiert auf Naturgesetzen (Keine-Klonen-Theorem, Unschärferelation). Abhören verändert physikalisch den Übertragungskanal – unumgehbar nach bisherigem Wissensstand.",
+            },
+        ],
+        resources: [
+            { title: "Welt der Physik: Quantenkommunikation", description: "Quanten-Schlüssel und sichere Kommunikation.", url: "https://www.weltderphysik.de/gebiet/quanten/quantenkommunikation/", type: 'article' },
+        ],
+    },
+    {
+        id: "quantencomputer",
+        topicNumber: "B4",
+        title: "Quantencomputer & Qubits",
+        description: "Superposition und Verschränkung als Rechenoperationen.",
+        progress: 0,
+        iconName: "Cpu",
+        isBonus: true,
+        theoryBites: [
+            {
+                title: "Bit vs. Qubit",
+                classicalText: "Klassisch: Ein Bit ist entweder 0 ODER 1. n Bits repräsentieren einen von 2ⁿ Zuständen gleichzeitig.",
+                quantumText: "Ein Qubit kann in Superposition gleichzeitig 0 UND 1 sein: |ψ⟩ = α|0⟩ + β|1⟩. n Qubits können alle 2ⁿ Zustände gleichzeitig repräsentieren – exponentielles Wachstum der Informationsdichte.",
+            },
+            {
+                title: "Quantenalgorithmen",
+                classicalText: "Klassisch: Suche in einer unsortierten Liste mit N Einträgen dauert O(N) Schritte.",
+                quantumText: "Grover-Algorithmus (QM): O(√N) Schritte – quadratische Beschleunigung! Shor-Algorithmus faktorisiert große Zahlen exponentiell schneller als klassische Algorithmen → Gefahr für RSA-Verschlüsselung.",
+            },
+            {
+                title: "Dekohärenz: das größte Problem",
+                classicalText: "Klassisch: Ein ruhiger Rechenraum reicht. Wärme stört kaum.",
+                quantumText: "Qubits verlieren ihre Superposition durch kleinste Störungen (Dekohärenz). Google's Quantenprozessor Sycamore arbeitet bei -273,14°C (nahe absolutem Nullpunkt). Fehlerkorrektur ist das zentrale Problem der Quantencomputerforschung.",
+            },
+        ],
+        abiturTasks: [
+            {
+                afb: 'I',
+                operator: "Vergleichen",
+                question: "Vergleiche ein klassisches Bit mit einem Qubit hinsichtlich der möglichen Zustände.",
+                answer: "Bit: binär, entweder 0 oder 1. Qubit: kann in Superposition gleichzeitig 0 und 1 sein. Erst die Messung kollabiert den Zustand auf 0 oder 1. 3 Qubits können alle 8 Zustände (2³) gleichzeitig repräsentieren.",
+            },
+            {
+                afb: 'II',
+                operator: "Erläutern",
+                question: "Erläutere, warum Dekohärenz das größte technische Problem beim Bau von Quantencomputern darstellt.",
+                answer: "Dekohärenz: Wechselwirkung der Qubits mit der Umgebung (Wärme, elektromagnetische Felder) zerstört die Superposition und damit den Quantenvorteil. Daher werden Qubits auf nahezu 0 K abgekühlt und stark abgeschirmt. Fehlerkorrektur kostet viele zusätzliche physische Qubits pro logischem Qubit.",
+            },
+            {
+                afb: 'III',
+                operator: "Beurteilen",
+                question: "Beurteile, ob Quantencomputer klassische Computer vollständig ersetzen werden.",
+                answer: "Nein. Quantencomputer sind für spezifische Probleme (Faktorisierung, Suche, Simulation) exponentiell schneller. Für alltägliche Aufgaben (Textverarbeitung, Videos) bringen sie keinen Vorteil. Beide Technologien ergänzen sich. Aktuell sind Quantencomputer noch nicht fehlertolerant genug für große Anwendungen.",
+            },
+        ],
+        resources: [
+            { title: "IBM Quantum Learning", description: "Interaktive Einführung in Quantencomputing (englisch).", url: "https://learning.quantum.ibm.com/", type: 'article' },
+        ],
+    },
+    {
+        id: "tunneleffekt",
+        topicNumber: "B5",
+        title: "Tunneleffekt",
+        description: "Quantenteilchen durchqueren klassisch verbotene Potenzialbarrieren.",
+        progress: 0,
+        iconName: "Zap",
+        isBonus: true,
+        theoryBites: [
+            {
+                title: "Was ist der Tunneleffekt?",
+                classicalText: "Klassisch: Ein Ball mit zu wenig Energie kann einen Berg nicht überwinden. Eine Barriere mit E_Barriere > E_Teilchen ist unüberwindbar.",
+                quantumText: "Die Wellenfunktion eines Quantenteilchens klingt in einer klassisch verbotenen Zone exponentiell ab – verschwindet aber nicht vollständig. Hinter der Barriere bleibt eine endliche Aufenthaltswahrscheinlichkeit: Das Teilchen 'tunnelt' hindurch.",
+            },
+            {
+                title: "Tunneleffekt im Alltag",
+                classicalText: "Klassisch: Atome in einem Atomkern sollten ihn nie verlassen können (Coulomb-Barriere zu hoch).",
+                quantumText: "Alpha-Zerfall: Das α-Teilchen tunnelt durch die Coulomb-Barriere und verlässt den Kern. Rastertunnelmikroskop (STM): Elektronen tunneln zwischen Spitze und Oberfläche – misst einzelne Atome. Sonnenfusion: Protonen tunneln trotz zu geringer thermischer Energie durch die Coulomb-Barriere.",
+            },
+        ],
+        abiturTasks: [
+            {
+                afb: 'I',
+                operator: "Beschreiben",
+                question: "Beschreibe den Tunneleffekt in eigenen Worten und nenne ein reales Beispiel.",
+                answer: "Ein Teilchen überwindet eine Energiebarriere, obwohl seine Energie kleiner als die Barrierenhöhe ist. Die Wellenfunktion klingt in der Barriere exponentiell ab, ist dahinter aber nicht null. Beispiel: Alpha-Zerfall, Rastertunnelmikroskop.",
+            },
+            {
+                afb: 'II',
+                operator: "Erläutern",
+                question: "Erläutere qualitativ, von welchen Faktoren die Tunnelwahrscheinlichkeit abhängt.",
+                answer: "P_Tunnel ∝ e^(-2κd), wobei d die Barrierenbreite und κ ∝ √(2m(V-E)/ħ) von Barrierenhöhe und Teilchenmasse abhängt. Breitere und höhere Barrieren → exponentiell kleiner Tunnelstrom. Schwerere Teilchen tunneln kaum (z.B. Protonen viel seltener als Elektronen).",
+            },
+            {
+                afb: 'III',
+                operator: "Beurteilen",
+                question: "Warum ist der Tunneleffekt für die Existenz der Sonne (und damit des Lebens) entscheidend?",
+                answer: "In der Sonne haben Protonen ~keV thermische Energie, aber die Coulomb-Barriere beträgt ~MeV. Klassisch könnte Kernfusion nicht stattfinden. Durch Tunneln überwinden Protonen diese Barriere mit kleiner, aber endlicher Wahrscheinlichkeit – Kernfusion und damit Sternenergie ist möglich. Ohne Tunneleffekt kein Sonnenlicht, kein Leben.",
+            },
+        ],
+        resources: [
+            { title: "Welt der Physik: Tunneleffekt", description: "Anwendungen und Grundlagen des Tunneleffekts.", url: "https://www.weltderphysik.de/gebiet/quanten/tunneleffekt/", type: 'article' },
         ],
     },
 ];

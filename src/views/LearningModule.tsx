@@ -57,9 +57,7 @@ const LearningModule: React.FC = () => {
             </button>
 
             <header style={{ marginBottom: '3rem' }}>
-                <div style={{ color: 'var(--accent-neon)', fontSize: '0.85rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '0.5rem' }}>
-                    Thema {moduleData.topicNumber}
-                </div>
+
                 <h1 className="text-gradient" style={{ fontSize: '3rem', margin: 0, paddingBottom: '0.5rem' }}>{moduleData.title}</h1>
                 <p style={{ fontSize: '1.25rem', color: 'var(--text-muted)', marginTop: '0.5rem' }}>
                     {moduleData.description}
