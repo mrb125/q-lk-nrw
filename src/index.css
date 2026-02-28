@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #0a0c10;
+  --bg-surface: #151822;
+  --bg-elevated: #202434;
+  --text-main: #f0f0f5;
+  --text-muted: #8b949e;
+  --accent-neon: #00f0ff;
+  --accent-purple: #b052f0;
+  --accent-green: #39ff14;
+  --border-color: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Utilities */
+.glass-panel {
+  background: rgba(21, 24, 34, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--accent-neon), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+  border-color: rgba(0, 240, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Utilities */
+@media (max-width: 1024px) {
+  .sidebar-responsive {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    background: rgba(21, 24, 34, 0.95);
+  }
+}
