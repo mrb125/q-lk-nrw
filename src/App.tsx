@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Routes, Route } from 'react-router-dom';
 import Dashboard from './views/Dashboard';
 import LearningModule from './views/LearningModule';
 import Strukturlegekarten from './views/Strukturlegekarten';
@@ -11,6 +11,9 @@ import Auswertung from './views/Auswertung';
 import Navigation from './components/Navigation';
 import { ThemeToggle } from './components/ThemeToggle';
 import './index.css';
+
+const Router = import.meta.env.VITE_STANDALONE === 'true' ? HashRouter : BrowserRouter;
+
 
 function App() {
   return (
