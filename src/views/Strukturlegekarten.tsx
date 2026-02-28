@@ -32,7 +32,7 @@ import {
     doppelspaltTemplateEdges
 } from '../data/legekartenData';
 import type { LegekarteData } from '../data/legekartenData';
-import { exportFlowToPDF } from '../utils/exportPdf';
+import { exportFlowToPDF, exportFlowToPNG } from '../utils/exportPdf';
 import { Download, Plus, Trash2, Zap, Waves, Sparkles, CheckCircle } from 'lucide-react';
 
 const edgeTypes = {
@@ -41,6 +41,13 @@ const edgeTypes = {
 
 const LOCAL_STORAGE_KEY_NODES = 'q-lk-nrw-sk-nodes';
 const LOCAL_STORAGE_KEY_EDGES = 'q-lk-nrw-sk-edges';
+const LOCAL_STORAGE_KEY_BOARDS = 'q-lk-nrw-sk-boards';
+const LOCAL_STORAGE_KEY_CURRENT_BOARD = 'q-lk-nrw-sk-current-board';
+
+interface Board {
+    id: string;
+    name: string;
+}
 
 const getLayoutedElements = (nodes: Node[], edges: Edge[], direction = 'TB') => {
     const dagreGraph = new dagre.graphlib.Graph();
@@ -80,16 +87,36 @@ const allValidEdges = [...photoeffektTemplateEdges, ...doppelspaltTemplateEdges]
 const StrukturlegekartenFlow: React.FC = () => {
     const { screenToFlowPosition, fitView } = useReactFlow();
 
-    // Initialize from local storage if exists
-    const [nodes, setNodes] = useState<Node[]>(() => {
-        const saved = localStorage.getItem(LOCAL_STORAGE_KEY_NODES);
-        return saved ? JSON.parse(saved) : [];
+    // Boards Initialization
+    const [boards, setBoards] = useState<Board[]>(() => {
+        const saved = localStorage.getItem(LOCAL_STORAGE_KEY_BOARDS);
+        return saved ? JSON.parse(saved) : [{ id: 'default', name: 'Board 1' }];
     });
 
-    const [edges, setEdges] = useState<Edge[]>(() => {
-        const saved = localStorage.getItem(LOCAL_STORAGE_KEY_EDGES);
-        return saved ? JSON.parse(saved) : [];
+    const [currentBoardId, setCurrentBoardId] = useState<string>(() => {
+        return localStorage.getItem(LOCAL_STORAGE_KEY_CURRENT_BOARD) || 'default';
     });
+
+    const getSavedNodes = (boardId: string) => {
+        const saved = localStorage.getItem(`${LOCAL_STORAGE_KEY_NODES}-${boardId}`);
+        if (!saved && boardId === 'default') {
+            const legacy = localStorage.getItem(LOCAL_STORAGE_KEY_NODES);
+            return legacy ? JSON.parse(legacy) : [];
+        }
+        return saved ? JSON.parse(saved) : [];
+    };
+
+    const getSavedEdges = (boardId: string) => {
+        const saved = localStorage.getItem(`${LOCAL_STORAGE_KEY_EDGES}-${boardId}`);
+        if (!saved && boardId === 'default') {
+            const legacy = localStorage.getItem(LOCAL_STORAGE_KEY_EDGES);
+            return legacy ? JSON.parse(legacy) : [];
+        }
+        return saved ? JSON.parse(saved) : [];
+    };
+
+    const [nodes, setNodes] = useState<Node[]>(() => getSavedNodes(currentBoardId));
+    const [edges, setEdges] = useState<Edge[]>(() => getSavedEdges(currentBoardId));
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
@@ -99,12 +126,51 @@ const StrukturlegekartenFlow: React.FC = () => {
 
     // Save to local storage on change
     useEffect(() => {
-        localStorage.setItem(LOCAL_STORAGE_KEY_NODES, JSON.stringify(nodes));
-    }, [nodes]);
+        localStorage.setItem(`${LOCAL_STORAGE_KEY_NODES}-${currentBoardId}`, JSON.stringify(nodes));
+    }, [nodes, currentBoardId]);
 
     useEffect(() => {
-        localStorage.setItem(LOCAL_STORAGE_KEY_EDGES, JSON.stringify(edges));
-    }, [edges]);
+        localStorage.setItem(`${LOCAL_STORAGE_KEY_EDGES}-${currentBoardId}`, JSON.stringify(edges));
+    }, [edges, currentBoardId]);
+
+    useEffect(() => {
+        localStorage.setItem(LOCAL_STORAGE_KEY_BOARDS, JSON.stringify(boards));
+    }, [boards]);
+
+    useEffect(() => {
+        localStorage.setItem(LOCAL_STORAGE_KEY_CURRENT_BOARD, currentBoardId);
+    }, [currentBoardId]);
+
+    const handleSwitchBoard = (newBoardId: string) => {
+        // Save current is handled by useEffects, so just switch
+        setCurrentBoardId(newBoardId);
+        setNodes(getSavedNodes(newBoardId));
+        setEdges(getSavedEdges(newBoardId));
+        setTimeout(() => fitView({ padding: 0.2, duration: 800 }), 50);
+    };
+
+    const handleCreateBoard = () => {
+        const boardName = window.prompt('Name des neuen Boards:', `Board ${boards.length + 1}`);
+        if (boardName) {
+            const newBoardId = `board-${Date.now()}`;
+            setBoards(prev => [...prev, { id: newBoardId, name: boardName }]);
+            handleSwitchBoard(newBoardId);
+        }
+    };
+
+    const handleDeleteBoard = () => {
+        if (boards.length <= 1) {
+            alert("Das letzte Board kann nicht gelöscht werden.");
+            return;
+        }
+        if (window.confirm("Dieses Board samt Inhalt wirklich löschen?")) {
+            const newBoards = boards.filter(b => b.id !== currentBoardId);
+            setBoards(newBoards);
+            localStorage.removeItem(`${LOCAL_STORAGE_KEY_NODES}-${currentBoardId}`);
+            localStorage.removeItem(`${LOCAL_STORAGE_KEY_EDGES}-${currentBoardId}`);
+            handleSwitchBoard(newBoards[0].id);
+        }
+    };
 
     const onNodesChange = useCallback(
         (changes: NodeChange[]) => setNodes((nds) => applyNodeChanges(changes, nds)),
@@ -262,6 +328,41 @@ const StrukturlegekartenFlow: React.FC = () => {
         });
     };
 
+    const handleExportPNG = () => {
+        // Add a temporary title for the export
+        const container = document.getElementById('react-flow-container');
+        let headerDiv: HTMLDivElement | null = null;
+
+        if (container) {
+            // Find existing summary node to use as title, or use default
+            const summaryNode = nodes.find(n => n.type === 'summaryNode');
+            if (summaryNode) {
+                const summary = summaryNode.data.label;
+                headerDiv = document.createElement('div');
+                headerDiv.className = 'no-print'; // Exclude from print if needed, but we want it in the image, so don't use no-print if we want it exported
+                headerDiv.style.position = 'absolute';
+                headerDiv.style.top = '20px';
+                headerDiv.style.left = '20px';
+                headerDiv.style.zIndex = '1000';
+                headerDiv.style.background = 'rgba(0,0,0,0.8)';
+                headerDiv.style.color = 'white';
+                headerDiv.style.padding = '10px 20px';
+                headerDiv.style.borderRadius = '8px';
+                headerDiv.style.fontSize = '24px';
+                headerDiv.style.fontWeight = 'bold';
+                headerDiv.style.border = '2px solid var(--accent-neon)';
+                headerDiv.innerText = String(summary);
+                container.appendChild(headerDiv);
+            }
+        }
+
+        exportFlowToPNG('react-flow-container', 'Quantenphysik_Strukturlegekarten.png').then(() => {
+            if (headerDiv) {
+                headerDiv.remove();
+            }
+        });
+    };
+
     const handleLayout = () => {
         const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
             [...nodes],
@@ -315,8 +416,35 @@ const StrukturlegekartenFlow: React.FC = () => {
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%', paddingBottom: '2rem' }}>
             <header style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
                 <div>
-                    <h1 style={{ fontSize: '2rem', fontWeight: 700, margin: 0 }}>Strukturlegekarten</h1>
-                    <p style={{ color: 'var(--text-muted)', margin: 0 }}>Platziere die Begriffe und verbinde sie miteinander. Wird automatisch gespeichert!</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+                        <h1 style={{ fontSize: '2rem', fontWeight: 700, margin: 0 }}>Strukturlegekarten</h1>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(255,255,255,0.05)', padding: '0.25rem 0.5rem', borderRadius: '8px' }}>
+                            <select
+                                value={currentBoardId}
+                                onChange={(e) => handleSwitchBoard(e.target.value)}
+                                style={{
+                                    background: 'transparent',
+                                    color: 'var(--accent-neon)',
+                                    border: 'none',
+                                    fontSize: '1rem',
+                                    fontWeight: 600,
+                                    outline: 'none',
+                                    cursor: 'pointer'
+                                }}
+                            >
+                                {boards.map(b => (
+                                    <option key={b.id} value={b.id} style={{ background: '#1a1a2e', color: 'white' }}>{b.name}</option>
+                                ))}
+                            </select>
+                            <button onClick={handleCreateBoard} title="Neues Board erstellen" style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
+                                <Plus size={18} />
+                            </button>
+                            <button onClick={handleDeleteBoard} title="Aktuelles Board löschen" style={{ background: 'transparent', border: 'none', color: 'var(--accent-red)', cursor: 'pointer', display: 'flex', alignItems: 'center', opacity: boards.length > 1 ? 1 : 0.5 }}>
+                                <Trash2 size={18} />
+                            </button>
+                        </div>
+                    </div>
+                    <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 0 0' }}>Platziere die Begriffe und verbinde sie miteinander. Wird automatisch gespeichert!</p>
                 </div>
                 <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
                     <button
@@ -351,6 +479,9 @@ const StrukturlegekartenFlow: React.FC = () => {
                     </button>
                     <button className="button button-primary" onClick={handleExport}>
                         <Download size={16} /> PDF
+                    </button>
+                    <button className="button button-primary" onClick={handleExportPNG}>
+                        <Download size={16} /> PNG
                     </button>
                     <button
                         className="button button-outline"

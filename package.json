@@ -11,13 +11,17 @@
   },
   "dependencies": {
     "@types/dagre": "^0.7.54",
+    "@types/katex": "^0.16.8",
+    "@types/react-katex": "^3.0.4",
     "@xyflow/react": "^12.10.1",
     "dagre": "^0.8.5",
     "html2canvas": "^1.4.1",
     "jspdf": "^4.2.0",
+    "katex": "^0.16.33",
     "lucide-react": "^0.575.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-katex": "^3.1.0",
     "react-router-dom": "^7.13.1",
     "vite-plugin-pwa": "^1.2.0"
   },

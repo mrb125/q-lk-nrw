@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Compass, Award, User, Share2 } from 'lucide-react';
+import { Home, Compass, User, Share2, Brain } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navigation: React.FC = () => {
@@ -9,7 +9,7 @@ const Navigation: React.FC = () => {
         { name: 'Dashboard', path: '/', icon: <Home size={24} /> },
         { name: 'Legekarten', path: '/strukturlegekarten', icon: <Share2 size={24} /> },
         { name: 'Entdecken', path: '/explore', icon: <Compass size={24} /> },
-        { name: 'Abzeichen', path: '/badges', icon: <Award size={24} /> },
+        { name: 'Trainer', path: '/flashcards', icon: <Brain size={24} /> },
         { name: 'Profil', path: '/profile', icon: <User size={24} /> },
     ];
 

@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { modules } from '../data/modules';
 import TheoryBite from '../components/TheoryBite';
 import SimulationDoppelspalt from '../components/SimulationDoppelspalt';
-import SimulationPhotoeffekt from '../components/SimulationPhotoeffekt';
+import SimulationPhotoeffekt from '../components/simulations/PhotoeffectSimulation';
 import AbiturTask from '../components/AbiturTask';
 import ResourceLinks from '../components/ResourceLinks';
 import { ArrowLeft, ChevronDown } from 'lucide-react';

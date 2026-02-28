@@ -102,6 +102,46 @@ export const modules: ModuleData[] = [
         ],
     },
     {
+        id: "photoeffekt",
+        topicNumber: "03",
+        title: "Lichtelektrischer Effekt",
+        description: "Herauslösen von Elektronen durch Licht (Photonen).",
+        progress: 0,
+        iconName: "Sun",
+        hasSimulation: true,
+        theoryBites: [
+            {
+                title: "Klassische Wellenvorstellung",
+                classicalText: "Die Energie des Lichts hängt von seiner Intensität (Helligkeit) ab. Selbst schwaches Licht müsste bei langer Bestrahlungsdauer Elektronen aus dem Metall lösen können (Energieakkumulation).",
+                quantumText: "Die Emission von Elektronen erfolgt sofort ohne Zeitverzögerung, aber erst ab einer bestimmten Grenzfrequenz (blaues UV-Licht). Rotes, hochintensives Licht löst keine Elektronen aus."
+            },
+            {
+                title: "Einsteins Lichtquantenhypothese",
+                classicalText: "Licht breitet sich kontinuierlich in allen Richtungen im Raum aus.",
+                quantumText: "Licht besteht aus unteilbaren Energiepaketen (Photonen) mit der Energie E = h * f. Ein Elektron absorbiert immer genau ein Ganzes Photon."
+            },
+            {
+                title: "Kinetische Energie",
+                classicalText: "Hellere Glühbirnen werfen mehr Lichtenergie auf die Platte, folglich müssten die Elektronen mit größerer Wucht (höherer Geschwindigkeit) austreten.",
+                quantumText: "Die Intensität erhöht nur die *Anzahl* der ausgelösten Elektronen. Die *maximale kinetische Energie* (Geschwindigkeit) hängt nur von der Frequenz (Farbe) des Lichts ab: E_kin = h*f - W_A."
+            }
+        ],
+        abiturTasks: [
+            {
+                afb: 'II',
+                operator: "Erklären",
+                question: "Erkläre den Begriff 'Austrittsarbeit' im Kontext des Photoeffekts.",
+                answer: "Die Austrittsarbeit (W_A oder W_K) ist die minimale Energie, die benötigt wird, um ein Elektron aus der Oberfläche eines bestimmten Metalls zu lösen. Diese ist materialabhängig."
+            },
+            {
+                afb: 'III',
+                operator: "Begründen",
+                question: "Begründe mit Einsteins Photonenhypothese, warum bei der Bestrahlung einer Zinkplatte mit einer sehr hellen roten Lampe keine Elektronen austreten, bei einer sehr schwachen UV-Lampe hingegen sofort.",
+                answer: "Die Photonen des roten Lichts haben eine geringe Frequenz und damit eine Energie (E=h*f), die kleiner als die Austrittsarbeit von Zink ist. Daher kann kein Elektron ausgelöst werden. UV-Licht-Photonen haben eine hohe Frequenz; ihre Energie ist größer als die Austrittsarbeit, weshalb selbst ein einzelnes Photon reicht, um sofort ein Elektron auszulösen."
+            }
+        ]
+    },
+    {
         id: "polarisation",
         topicNumber: "02",
         title: "Polarisation",
@@ -135,19 +175,49 @@ export const modules: ModuleData[] = [
     },
     {
         id: "de-broglie",
-        topicNumber: "07",
+        topicNumber: "06",
         title: "De-Broglie-Wellenlänge",
         description: "Der Impuls von Materiewellen.",
         progress: 0,
         iconName: "Activity",
+        theoryBites: [
+            {
+                title: "Teilchen-Impuls",
+                classicalText: "Elektronen sind kleine geladene Kügelchen. Ihr Verhalten wird vollständig durch ihre Masse und Geschwindigkeit (p = m*v) beschrieben.",
+                quantumText: "Auch Teilchen mit Masse haben Welleneigenschaften. Louis de Broglie postulierte: Jedes Teilchen mit Impuls p hat eine Wellenlänge $\\lambda = h / p$."
+            }
+        ],
+        abiturTasks: [
+            {
+                afb: 'I',
+                operator: "Berechnen",
+                question: "Berechne die De-Broglie-Wellenlänge eines Elektrons, das mit einer Beschleunigungsspannung von U = 4 kV beschleunigt wurde.",
+                answer: "1. Kinetische Energie: $E_{kin} = e \\cdot U$ \n2. Impuls: $p = \\sqrt{2 \cdot m_e \cdot E_{kin}}$ \n3. Wellenlänge: $\\lambda = \\frac{h}{p} \\approx 1{,}94 \\cdot 10^{-11} \\text{ m}$"
+            }
+        ]
     },
     {
         id: "elektronenbeugung",
-        topicNumber: "08",
+        topicNumber: "07",
         title: "Elektronenbeugung",
         description: "Materiewellen am Graphitgitter.",
         progress: 0,
         iconName: "Target",
+        theoryBites: [
+            {
+                title: "Elektronen am Kristallgitter",
+                classicalText: "Elektronen prallen wie kleine Kugeln am Graphitgitter ab und fliegen in zufällige Richtungen davon (diffuse Streuung).",
+                quantumText: "Die Elektronen-Wellen interferieren am Kristallgitter (Bragg-Reflexion oder Debye-Scherrer) und erzeugen auf dem Schirm konzentrische Interferenzringe. Dies beweist den Wellencharakter der Materie."
+            }
+        ],
+        abiturTasks: [
+            {
+                afb: 'II',
+                operator: "Erklären",
+                question: "Erkläre das Zustandekommen der Interferenzringe bei der Elektronenbeugungsröhre.",
+                answer: "Die Elektronen haben laut de Broglie eine Wellenlänge $\\lambda$. Die Graphitfolie besteht aus vielen zufällig ausgerichteten Mikrokristallen. An den Netzebenen der Kristalle kommt es zur konstruktiven Interferenz (Bragg-Bedingung: $n\\cdot\\lambda = 2d\\cdot\\sin\\alpha$). Durch die zufällige Ausrichtung der Kristalle entsteht keine Punktmatrix, sondern ein Ringsystem (Debye-Scherrer-Verfahren)."
+            }
+        ]
     },
     {
         id: "unschaerfe",

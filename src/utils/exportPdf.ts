@@ -68,3 +68,39 @@ export const exportFlowToPDF = async (elementId: string, filename: string = 'Str
         element.style.cssText = originalStyle;
     }
 };
+
+export const exportFlowToPNG = async (elementId: string, filename: string = 'Strukturlegekarten.png') => {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+
+    const originalStyle = element.style.cssText;
+    try {
+        element.style.background = '#1a1b26';
+
+        const canvas = await html2canvas(element, {
+            scale: 2,
+            useCORS: true,
+            backgroundColor: '#1a1b26',
+            ignoreElements: (node) => {
+                return node.classList.contains('react-flow__controls') ||
+                    node.classList.contains('react-flow__panel') ||
+                    node.classList.contains('no-print');
+            }
+        });
+
+        const imgData = canvas.toDataURL('image/png');
+
+        // Setup download link
+        const link = document.createElement('a');
+        link.href = imgData;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+    } catch (error) {
+        console.error('Fehler beim PNG Export:', error);
+    } finally {
+        element.style.cssText = originalStyle;
+    }
+};
