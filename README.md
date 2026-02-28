@@ -1,73 +1,52 @@
-# React + TypeScript + Vite
+# Quantenphysik LK Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Digitale Lernplattform für das Abitur Quantenphysik NRW  
+> Stack: **React 18 · Vite · TypeScript · KaTeX · html2canvas · @xyflow/react**
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| Feature | Route |
+|---------|-------|
+| 📊 Dashboard (Fortschritt, Module) | `/` |
+| 🗺️ Strukturlegekarten (Multi-Board, PNG-Export) | `/strukturlegekarten` |
+| 🌐 Entdecken (externe Links: LEIFI, PhET…) | `/explore` |
+| 🃏 Karteikarten-Trainer (AFB-Filter, localStorage) | `/flashcards` |
+| 📐 Messwert-Auswertung (h, λ, Bragg, De-Broglie) | `/auswertung` |
+| 🎓 Abitur-Simulation (Timer, Selbstbewertung, Note) | `/abitur` |
+| 🏆 Abzeichen-System (10 Achievements) | `/badges` |
+| 📖 Formelsammlung (KaTeX) | `/formulas` |
+| 📚 Lernmodul-Detail | `/module/:id` |
 
-## React Compiler
+## Interaktive Simulationen
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Photoeffekt** – Wellenlänge & Intensität, Materialauswahl, Elektronenemission mit Anoden-Absorption
+- **Doppelspalt** – Interferenzmuster + Intensitätsprofil live, Einzelphotonen-Modus
+- **Bragg-Reflexion** – Kristallgitter-Canvas, Glanzwinkel-Slider, konstruktive Interferenz
 
-## Expanding the ESLint configuration
+## Inhalt (modules.ts)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+11 Themen vollständig mit TheoryBites und AbiturTasks:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1. Doppelspalt mit Einzelphotonen
+2. Welle-Teilchen-Dualismus
+3. Röntgenstrahlung
+4. Compton-Effekt
+5. Lichtelektrischer Effekt
+6. De-Broglie-Wellenlänge
+7. Elektronenbeugung
+8. Heisenbergsche Unschärferelation
+9. Fullerene-Interferenz
+10. Schrödingers Katze
+11. Hallwachs-Versuch
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Lokale Entwicklung
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev        # http://localhost:5173
+npm run build      # Produktions-Build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## GitHub
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Repository: https://github.com/mrb125/q-lk-nrw
