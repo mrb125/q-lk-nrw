@@ -1,0 +1,158 @@
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\components\LevelSystemUI.tsx
+  10:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\components\LevelSystemUI.tsx:10:9
+   8 |     useEffect(() => {
+   9 |         // Initial load
+> 10 |         setXp(getXP());
+     |         ^^^^^ Avoid calling setState() directly within an effect
+  11 |
+  12 |         // Listen for XP updates from anywhere in the app
+  13 |         const handleXpUpdate = () => {  react-hooks/set-state-in-effect
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\components\ModuleCard.tsx
+  13:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\components\SimulationDoppelspalt.tsx
+  70:8  warning  React Hook useEffect has a missing dependency: 'animate'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\components\SimulationPhotoeffekt.tsx
+  126:8  warning  React Hook useEffect has a missing dependency: 'animate'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\components\ThemeToggle.tsx
+  22:13  error  Error: Cannot access variable before it is declared
+
+`applyTheme` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\components\ThemeToggle.tsx:22:13
+  20 |         if (savedTheme && THEMES.some(t => t.id === savedTheme)) {
+  21 |             setTheme(savedTheme);
+> 22 |             applyTheme(savedTheme);
+     |             ^^^^^^^^^^ `applyTheme` accessed before it is declared
+  23 |         } else {
+  24 |             applyTheme('quantum');
+  25 |         }
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\components\ThemeToggle.tsx:36:5
+  34 |     }, []);
+  35 |
+> 36 |     const applyTheme = (newTheme: Theme) => {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 37 |         document.body.className = `theme-${newTheme}`;
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 38 |     };
+     | ^^^^^^^ `applyTheme` is declared here
+  39 |
+  40 |     const handleThemeChange = (newTheme: Theme) => {
+  41 |         setTheme(newTheme);  react-hooks/immutability
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\components\legekarten\CustomNodes.tsx
+  233:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\components\simulations\DoppelspaltSimulation.tsx
+  75:13  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\components\simulations\MachZehnderSimulation.tsx
+  168:49  error  Error: Cannot access variable before it is declared
+
+`draw` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\components\simulations\MachZehnderSimulation.tsx:168:49
+  166 |         ctx.font = 'bold 11px Outfit';
+  167 |
+> 168 |         animRef.current = requestAnimationFrame(draw);
+      |                                                 ^^^^ `draw` accessed before it is declared
+  169 |     }, []);
+  170 |
+  171 |     useEffect(() => {
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\components\simulations\MachZehnderSimulation.tsx:35:5
+   33 |     }, []);
+   34 |
+>  35 |     const draw = useCallback(() => {
+      |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  36 |         const canvas = canvasRef.current;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  37 |         if (!canvas) return;
+      ÔÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 168 |         animRef.current = requestAnimationFrame(draw);
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 169 |     }, []);
+      | ^^^^^^^^^^^^ `draw` is declared here
+  170 |
+  171 |     useEffect(() => {
+  172 |         animRef.current = requestAnimationFrame(draw);  react-hooks/immutability
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\components\simulations\PotentialtopfSimulation.tsx
+  110:13  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\components\simulations\RoentgenSimulation.tsx
+  115:17  error    Expected an assignment or function call and instead saw an expression                                          @typescript-eslint/no-unused-expressions
+  137:8   warning  React Hook useEffect has a missing dependency: 'CHAR_PEAKS'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\data\legekartenData.ts
+  62:149  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  63:138  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  64:137  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  65:126  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  66:138  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  67:130  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  82:137  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  83:149  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  84:140  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  85:138  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  86:135  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\views\Badges.tsx
+  9:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\views\Badges.tsx:9:9
+   7 |
+   8 |     useEffect(() => {
+>  9 |         setEarned(getEarnedBadges());
+     |         ^^^^^^^^^ Avoid calling setState() directly within an effect
+  10 |     }, []);
+  11 |
+  12 |     const earnedList = BADGES.filter(b => earned.has(b.id));  react-hooks/set-state-in-effect
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\views\Flashcards.tsx
+  56:20  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\views\Flashcards.tsx:56:20
+  54 |     useEffect(() => {
+  55 |         const saved = localStorage.getItem('q-lk-flashcards-known');
+> 56 |         if (saved) setKnownCards(new Set(JSON.parse(saved)));
+     |                    ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  57 |     }, []);
+  58 |
+  59 |     useEffect(() => {  react-hooks/set-state-in-effect
+
+C:\Users\simon\.gemini\antigravity\scratch\q-lk-nrw\src\views\Strukturlegekarten.tsx
+   70:70   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   71:74   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  226:50   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  412:30   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  628:139  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+Ô£û 29 problems (26 errors, 3 warnings)
+

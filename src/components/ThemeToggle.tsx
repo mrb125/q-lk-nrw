@@ -10,6 +10,10 @@ const THEMES: { id: Theme; label: string; icon: string }[] = [
     { id: 'dark', label: 'Minimal Dark', icon: '🌙' }
 ];
 
+const applyTheme = (newTheme: Theme) => {
+    document.body.className = `theme-${newTheme}`;
+};
+
 export const ThemeToggle: React.FC = () => {
     const [theme, setTheme] = useState<Theme>('quantum');
     const [isOpen, setIsOpen] = useState(false);
@@ -32,10 +36,6 @@ export const ThemeToggle: React.FC = () => {
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
-
-    const applyTheme = (newTheme: Theme) => {
-        document.body.className = `theme-${newTheme}`;
-    };
 
     const handleThemeChange = (newTheme: Theme) => {
         setTheme(newTheme);

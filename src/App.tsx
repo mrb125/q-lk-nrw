@@ -8,18 +8,21 @@ import Formulas from './views/Formulas';
 import AbiturSimulation from './views/AbiturSimulation';
 import Badges from './views/Badges';
 import Auswertung from './views/Auswertung';
+import Quiz from './views/Quiz';
+import Lexikon from './views/Lexikon';
 import Navigation from './components/Navigation';
 import { ThemeToggle } from './components/ThemeToggle';
+import { LevelSystemUI } from './components/LevelSystemUI';
 import './index.css';
 
 const Router = import.meta.env.VITE_STANDALONE === 'true' ? HashRouter : BrowserRouter;
-
 
 function App() {
   return (
     <Router>
       <div className="app-container" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-        <div style={{ position: 'absolute', top: '1.5rem', right: '2rem', zIndex: 1000 }}>
+        <div style={{ position: 'absolute', top: '1.5rem', right: '2rem', zIndex: 1000, display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+          <LevelSystemUI />
           <ThemeToggle />
         </div>
         <main style={{ flex: 1, padding: '2rem', paddingBottom: '100px' }}>
@@ -33,6 +36,8 @@ function App() {
             <Route path="/abitur" element={<AbiturSimulation />} />
             <Route path="/badges" element={<Badges />} />
             <Route path="/auswertung" element={<Auswertung />} />
+            <Route path="/quiz" element={<Quiz />} />
+            <Route path="/lexikon" element={<Lexikon />} />
           </Routes>
         </main>
         <Navigation />

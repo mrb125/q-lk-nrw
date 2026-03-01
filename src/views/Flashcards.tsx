@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { modules } from '../data/modules';
 import { Brain, CheckCircle, XCircle, RotateCcw, Award, Filter } from 'lucide-react';
+import { addXP, checkAndAwardBadge } from '../utils/xpSystem';
 
 type Flashcard = {
     id: string;
@@ -77,7 +78,13 @@ const Flashcards: React.FC = () => {
     const handleNext = (known: boolean) => {
         const currentCard = filteredCards[currentIndex];
         if (known) {
-            setKnownCards(prev => new Set(prev).add(currentCard.id));
+            setKnownCards(prev => {
+                const updated = new Set(prev).add(currentCard.id);
+                addXP(5);
+                checkAndAwardBadge('flashcard_10', updated.size >= 10);
+                checkAndAwardBadge('flashcard_all', updated.size >= filteredCards.length);
+                return updated;
+            });
             setIsFlipped(false);
             setCurrentIndex(prev => prev + 1);
         } else {

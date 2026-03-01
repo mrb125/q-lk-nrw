@@ -4,6 +4,9 @@ import { modules } from '../data/modules';
 import TheoryBite from '../components/TheoryBite';
 import SimulationDoppelspalt from '../components/SimulationDoppelspalt';
 import SimulationPhotoeffekt from '../components/simulations/PhotoeffectSimulation';
+import RoentgenSimulation from '../components/simulations/RoentgenSimulation';
+import PotentialtopfSimulation from '../components/simulations/PotentialtopfSimulation';
+import MachZehnderSimulation from '../components/simulations/MachZehnderSimulation';
 import AbiturTask from '../components/AbiturTask';
 import ResourceLinks from '../components/ResourceLinks';
 import { ArrowLeft, ChevronDown } from 'lucide-react';
@@ -150,6 +153,9 @@ const LearningModule: React.FC = () => {
                                 </h2>
                                 {id === 'doppelspalt' && <SimulationDoppelspalt />}
                                 {id === 'photoeffekt' && <SimulationPhotoeffekt />}
+                                {(id === 'roentgenstrahlung' || id === 'compton') && <RoentgenSimulation />}
+                                {(id === 'tunneleffekt' || id === 'quantenmechanik') && <PotentialtopfSimulation />}
+                                {(id === 'verschraenkung') && <MachZehnderSimulation />}
                             </>
                         )}
 

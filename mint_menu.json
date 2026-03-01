@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Error 404</title>
+    <meta charset="UTF-8" />
+    <meta lang="de" />
+    <style nonce="MintAppsNonce">
+      html {
+        --primary-color: #00897b;
+        --secondary-color: #808080;
+        --accent-color: #e53935;
+        --icon-text-color: #ffffff;
+        --shadow-color: #00000060;
+        --dividor-color: #bdbdbd;
+        --background-color: #f0f0f0;
+        --font-family-text: 'Helvetica', 'Arial', sans-serif;
+        --font-size-text: 16px;
+        min-height: 100%;
+      }
+
+      .error {
+        font-family: var(--font-family-text);
+        font-size: var(--font-size-text);
+        background-color: var(--background-color);
+        color: var(--primary-text-color);
+        margin: 0;
+      }
+
+      .error .navbar {
+        background-color: var(--background-color);
+        height: 35px;
+      }
+
+      .error .topbar {
+        background-color: var(--background-color-muted);
+        max-height: 30rem;
+        border-bottom: solid 3px var(--dividor-color);
+        padding: 0 3rem 1rem 3rem;
+      }
+
+      .error .topbar h1 {
+        font-weight: bold;
+        font-size: 200%;
+        color: var(--primary-color);
+        margin: 0.5rem 0;
+      }
+
+      .error .topbar h2 {
+        font-weight: normal;
+        font-size: 110%;
+        opacity: 0.9;
+      }
+
+      .error .icon {
+        font-size: 48pt;
+        margin: 1em 0em;
+        padding: 12pt;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .error p {
+        margin: 2rem;
+      }
+
+      .error .button {
+        padding: 6px 0.5rem;
+        background-color: var(--primary-color);
+        color: var(--icon-text-color);
+        font-size: 100%;
+        border-radius: 0.2em;
+        border: 1px solid var(--dividor-color);
+        text-decoration: none;
+      }
+
+      .error .button:hover {
+        filter: brightness(0.9);
+      }
+
+      .error .button-secondary {
+        background-color: var(--secondary-color);
+      }
+
+      .error .text-center {
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body class="error">
+    <div class="navbar"></div>
+    <div class="topbar">
+      <h1>Oops...</h1>
+      <h2>... unfortunately, access to this page is no longer possible!<br />Use the search to find the right app or go to the homepage with the various categories.</h2>
+    </div>
+    <p class="icon">¯\_(ツ)_/¯</p>
+    <div class="text-center">
+      <a class="button" href="/html/mint-search.html">Search</a>
+      <a class="button button-secondary" href="/html/mint-index.html">Homepage</a>
+    </div>
+  </body>
+</html>
